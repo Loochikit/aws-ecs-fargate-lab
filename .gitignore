@@ -1,0 +1,19 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Credenciales y archivos sensibles
+rds-config.json
+*.tmp
+.env
+.env.local
+
+# Datos de Docker locales
+pgdata/
+
+# Logs del sistema e IDE
+.idea/
+.vscode/
+*.log

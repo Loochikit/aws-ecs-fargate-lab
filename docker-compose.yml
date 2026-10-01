@@ -1,0 +1,78 @@
+version: '3.8'
+
+# ==============================================================================
+# Docker Compose para Pruebas Locales
+# Emula la arquitectura completa de AWS (Nginx Frontend + Express Backend + DB)
+# ==============================================================================
+
+services:
+  # Base de Datos Relacional Local (Emula Amazon RDS PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    container_name: aws-lab-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: appsecret123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - lab-network
+
+  # Backend REST API (Emula ECS Fargate en Subred Privada)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aws-lab-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: appuser
+      DB_PASSWORD: appsecret123
+      DB_NAME: appdb
+    ports:
+      - "3000:3000"
+    networks:
+      - lab-network
+
+  # Frontend Web & Reverse Proxy (Emula ECS Fargate en Subred Pública)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: aws-lab-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      BACKEND_HOST: backend
+      BACKEND_PORT: 3000
+    ports:
+      - "8085:80"
+    networks:
+      - lab-network
+
+# Red compartida que emula el tráfico dentro de la VPC de AWS
+networks:
+  lab-network:
+    driver: bridge
+
+# Volumen con nombre para persistir los datos de PostgreSQL localmente
+volumes:
+  pgdata:
+    driver: local

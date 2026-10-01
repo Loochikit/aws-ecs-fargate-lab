@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Cloud Architecture Dashboard | ECS Fargate & RDS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Glow Accents -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-brand">
+        <div class="cloud-icon-badge">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="header-title">Laboratorio AWS: ECS Fargate + ECR + RDS</h1>
+          <p class="header-subtitle">Arquitectura Contenerizada de Tres Capas (Frontend Público · Backend Privado · RDS)</p>
+        </div>
+      </div>
+
+      <div class="header-status-group">
+        <div id="status-pill" class="status-pill status-loading">
+          <span class="status-dot"></span>
+          <span id="status-text">Verificando Backend & RDS...</span>
+        </div>
+        <button id="btn-refresh" class="btn-icon" title="Refrescar datos">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+            <path d="M16 21h5v-5"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Architecture Visual Banner -->
+    <div class="architecture-banner">
+      <div class="arch-step">
+        <span class="arch-tag public-tag">Subred Pública 10.0.1.0/24</span>
+        <div class="arch-box">
+          <div class="arch-title">Frontend</div>
+          <div class="arch-desc">ECS Fargate · Nginx (Puerto 80)</div>
+        </div>
+      </div>
+      <div class="arch-arrow">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="arch-step">
+        <span class="arch-tag private-tag">Subred Privada 10.0.2.0/24</span>
+        <div class="arch-box">
+          <div class="arch-title">Backend API</div>
+          <div class="arch-desc">ECS Fargate · Express (Puerto 3000)</div>
+        </div>
+      </div>
+      <div class="arch-arrow">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="arch-step">
+        <span class="arch-tag data-tag">Subredes Datos 10.0.3.0/24</span>
+        <div class="arch-box">
+          <div class="arch-title">Amazon RDS</div>
+          <div class="arch-desc">PostgreSQL (Puerto 5432)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics Cards -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-label">Total de Registros</span>
+          <span class="stat-icon">📦</span>
+        </div>
+        <div id="stat-total" class="stat-value">0</div>
+        <span class="stat-sub">Persistidos en Amazon RDS</span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-label">Valor Total Inventario</span>
+          <span class="stat-icon">💰</span>
+        </div>
+        <div id="stat-value" class="stat-value">$0.00</div>
+        <span class="stat-sub">Suma acumulada de precios</span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-label">Latencia Backend / BD</span>
+          <span class="stat-icon">⚡</span>
+        </div>
+        <div id="stat-latency" class="stat-value">-- ms</div>
+        <span class="stat-sub">Tiempo de respuesta REST</span>
+      </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="main-grid">
+      <!-- Left Column: Form to INSERT item -->
+      <section class="card form-card">
+        <div class="card-header">
+          <div class="card-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="card-title">Registrar Nuevo Ítem</h2>
+            <p class="card-subtitle">Ejecuta operación <code>POST /api/items</code> en RDS</p>
+          </div>
+        </div>
+
+        <form id="item-form" class="item-form" novalidate>
+          <div class="form-group">
+            <label for="nombre" class="form-label">Nombre del Ítem / Recurso <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              class="form-input" 
+              placeholder="Ej. Servidor Web Nginx, Instancia Fargate..." 
+              required 
+              maxlength="100"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="precio" class="form-label">Precio Unitario ($ USD) <span class="required">*</span></label>
+            <div class="input-prefix-wrapper">
+              <span class="input-prefix">$</span>
+              <input 
+                type="number" 
+                id="precio" 
+                name="precio" 
+                class="form-input with-prefix" 
+                placeholder="0.00" 
+                step="0.01" 
+                min="0" 
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea 
+              id="descripcion" 
+              name="descripcion" 
+              class="form-textarea" 
+              rows="3" 
+              placeholder="Detalles técnicos, notas o especificación de este registro..."
+            ></textarea>
+          </div>
+
+          <button type="submit" id="btn-submit" class="btn btn-primary">
+            <span class="btn-text">Insertar Registro en RDS</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Right Column: Table to SELECT items -->
+      <section class="card table-card">
+        <div class="card-header space-between">
+          <div class="header-inline">
+            <div class="card-icon-wrapper secondary">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"/>
+                <line x1="8" y1="12" x2="21" y2="12"/>
+                <line x1="8" y1="18" x2="21" y2="18"/>
+                <line x1="3" y1="6" x2="3.01" y2="6"/>
+                <line x1="3" y1="12" x2="3.01" y2="12"/>
+                <line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="card-title">Registros Almacenados en RDS</h2>
+              <p class="card-subtitle">Consulta activa vía <code>GET /api/items</code></p>
+            </div>
+          </div>
+          <input 
+            type="text" 
+            id="table-search" 
+            class="search-input" 
+            placeholder="Filtrar registros..."
+          />
+        </div>
+
+        <div class="table-container">
+          <table class="data-table" id="items-table">
+            <thead>
+              <tr>
+                <th class="col-id">ID</th>
+                <th class="col-name">Nombre</th>
+                <th class="col-desc">Descripción</th>
+                <th class="col-price">Precio</th>
+                <th class="col-date">Fecha de Creación</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr>
+                <td colspan="5" class="table-loading-cell">
+                  <div class="table-loader">
+                    <span class="spinner"></span>
+                    <span>Cargando registros desde RDS...</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

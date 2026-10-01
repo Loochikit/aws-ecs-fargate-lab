@@ -1,0 +1,38 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    # Directorio de los archivos estáticos de la interfaz web
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Proxy inverso para las solicitudes de API hacia el Backend en la subred privada
+    # Las variables $BACKEND_HOST y $BACKEND_PORT se inyectan automáticamente desde variables de entorno
+    location /api/ {
+        proxy_pass http://${BACKEND_HOST}:${BACKEND_PORT}/api/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_connect_timeout 5s;
+        proxy_read_timeout 30s;
+    }
+
+    # Endpoint de salud del backend para diagnósticos
+    location /backend-health {
+        proxy_pass http://${BACKEND_HOST}:${BACKEND_PORT}/health;
+    }
+
+    # Manejo de errores
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}

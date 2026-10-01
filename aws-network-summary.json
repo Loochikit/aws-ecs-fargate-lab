@@ -1,0 +1,13 @@
+{
+    "IgwId":  "igw-0540478f502ad97cf",
+    "SgRds":  "sg-04b98906b7c4e8245",
+    "RouteTablePrivate":  "rtb-01cafdcb461a28ac3",
+    "SubnetPrivateRdsB":  "subnet-0462b854c1d408748",
+    "VpcId":  "vpc-016761ebd9408a416",
+    "SubnetPrivateRdsA":  "subnet-004bc6d3d4bc29696",
+    "SubnetPrivateBackend":  "subnet-0e61d9488a4a84bdc",
+    "SgBackend":  "sg-09388bf44dadfaf67",
+    "SubnetPublicFrontend":  "subnet-0385f376c2a651e7b",
+    "RouteTablePublic":  "rtb-0f8663739f7193e83",
+    "SgFrontend":  "sg-0de85ed0ac1183315"
+}
