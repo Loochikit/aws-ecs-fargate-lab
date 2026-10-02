@@ -7,15 +7,20 @@
 
         <!-- ================= ENCABEZADO Y BANNER ================= -->
         <mxCell id="hdr-title" value="Laboratorio Práctico: Arquitectura en AWS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
-          <mxGeometry x="50" y="25" width="800" height="30" as="geometry" />
+          <mxGeometry x="50" y="18" width="800" height="28" as="geometry" />
         </mxCell>
         <mxCell id="hdr-sub" value="Docker → Amazon ECR → Amazon ECS con AWS Fargate → Amazon RDS (PostgreSQL)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#545B64;" vertex="1" parent="1">
-          <mxGeometry x="50" y="55" width="800" height="20" as="geometry" />
+          <mxGeometry x="50" y="46" width="800" height="20" as="geometry" />
         </mxCell>
 
         <!-- Banner explicativo sin ALB -->
-        <mxCell id="banner-alb" value="&lt;b&gt;Arquitectura Directa (Sin ALB):&lt;/b&gt; Internet → Frontend (Subred Pública: 10.0.1.0/24) → Backend API (Subred Privada: 10.0.2.0/24) → Amazon RDS (Subredes Privadas de Datos: 10.0.3.0/24 y 10.0.4.0/24). Tráfico interno enrutado mediante Reverse Proxy Nginx y ECS Service Connect." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E7;strokeColor=#FF9900;strokeWidth=1.5;align=left;spacingLeft=15;fontSize=12;fontColor=#5D4037;" vertex="1" parent="1">
-          <mxGeometry x="50" y="85" width="1550" height="35" as="geometry" />
+        <mxCell id="banner-alb" value="&lt;b&gt;Arquitectura Directa (Sin ALB):&lt;/b&gt; Internet → Frontend (Subred Pública: 10.0.1.0/24) → Backend API (Subred Privada: 10.0.2.0/24) → Amazon RDS (Subredes Privadas de Datos: 10.0.3.0/24 y 10.0.4.0/24). Tráfico interno enrutado mediante Reverse Proxy Nginx y ECS Service Connect." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E7;strokeColor=#FF9900;strokeWidth=1.5;align=left;spacingLeft=15;spacingRight=15;fontSize=11;fontColor=#5D4037;" vertex="1" parent="1">
+          <mxGeometry x="50" y="74" width="1100" height="56" as="geometry" />
+        </mxCell>
+
+        <!-- Card Integrantes (Estilo personalizado según requerimiento) -->
+        <mxCell id="card-integrantes" value="&lt;table style=&quot;width:100%; border-collapse:collapse; font-family:Helvetica, Arial, sans-serif;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; style=&quot;padding-bottom:5px;&quot;&gt;&lt;b style=&quot;color:#7CFFB2; font-size:12px; letter-spacing:0.5px;&quot;&gt;Integrantes&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;color:#FFFFFF; font-size:11px; padding:2px 0;&quot;&gt;&lt;b&gt;Diego Gordón&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;color:#DDD6FE; font-size:11px; text-align:right;&quot;&gt;8-1017-349&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;color:#FFFFFF; font-size:11px; padding:2px 0;&quot;&gt;&lt;b&gt;Manuel Campos&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;color:#DDD6FE; font-size:11px; text-align:right;&quot;&gt;8-1022-1118&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;color:#FFFFFF; font-size:11px; padding:2px 0;&quot;&gt;&lt;b&gt;Fernando Jimenez&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;color:#DDD6FE; font-size:11px; text-align:right;&quot;&gt;20-24-7669&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;color:#FFFFFF; font-size:11px; padding:2px 0;&quot;&gt;&lt;b&gt;Bryan Law&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;color:#DDD6FE; font-size:11px; text-align:right;&quot;&gt;8-104-2459&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;color:#FFFFFF; font-size:11px; padding:2px 0;&quot;&gt;&lt;b&gt;Alexis Miranda&lt;/b&gt;&lt;/td&gt;&lt;td style=&quot;color:#DDD6FE; font-size:11px; text-align:right;&quot;&gt;9-765-1202&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#311B58;strokeColor=#4A148C;strokeWidth=1.5;verticalAlign=middle;spacingLeft=16;spacingRight=16;spacingTop=4;spacingBottom=4;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="15" width="420" height="115" as="geometry" />
         </mxCell>
 
         <!-- ================= EXTERNO: CLIENTES ================= -->

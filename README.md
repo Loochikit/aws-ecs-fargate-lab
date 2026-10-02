@@ -5,6 +5,18 @@ Solución técnica completa e implementación de referencia para el laboratorio 
 
 ---
 
+## 👥 Integrantes del Equipo
+
+| Integrante | Cédula / Identificación |
+| :--- | :--- |
+| **Diego Gordón** | 8-1017-349 |
+| **Manuel Campos** | 8-1022-1118 |
+| **Fernando Jimenez** | 20-24-7669 |
+| **Bryan Law** | 8-104-2459 |
+| **Alexis Miranda** | 9-765-1202 |
+
+---
+
 ## 1. Arquitectura de la Solución (Desplegada en Ohio `us-east-2`)
 
 ```
