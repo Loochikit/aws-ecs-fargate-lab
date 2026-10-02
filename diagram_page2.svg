@@ -1,0 +1,400 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Marcadores de flechas -->
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FF9900" />
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0073BB" />
+    </marker>
+    <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6A1B9A" />
+    </marker>
+    <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#545B64" />
+    </marker>
+    <marker id="arr-violet" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#8C4FFF" />
+    </marker>
+    
+    <!-- Filtro sombra suave -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- ================= ENCABEZADO SUPERIOR ================= -->
+  <text x="35" y="32" font-size="18" font-weight="700" fill="#232F3E">Arquitectura en AWS — Aplicación de Tres Capas en Contenedores</text>
+  <text x="35" y="49" font-size="11" font-weight="400" fill="#545B64">Segura · Desacoplada · Persistencia Gestionada · Sin Balanceador ALB (ECS Service Connect)</text>
+
+  <!-- Icono Internet superior derecho -->
+  <g transform="translate(1100, 16)">
+    <path d="M15,4 C19,4 22,7 23,10 C26,10 28,12 28,15 C28,18 25,21 22,21 L8,21 C4,21 1,18 1,14 C1,11 4,8 7,8 C8,5 11,4 15,4 Z" fill="none" stroke="#545B64" stroke-width="1.8"/>
+    <text x="36" y="16" font-size="11" font-weight="600" fill="#545B64">Internet</text>
+  </g>
+
+  <!-- ================= AWS CLOUD ================= -->
+  <rect x="35" y="65" width="1130" height="520" rx="8" fill="#FFFFFF" stroke="#232F3E" stroke-width="1.8" />
+  
+  <!-- AWS Cloud Badge -->
+  <g transform="translate(48, 73)">
+    <rect x="0" y="0" width="30" height="18" rx="3" fill="#232F3E" />
+    <text x="15" y="13" font-size="8.5" font-weight="bold" fill="#FF9900" text-anchor="middle">aws</text>
+    <text x="38" y="13" font-size="12" font-weight="700" fill="#232F3E">AWS Cloud</text>
+    <text x="108" y="13" font-size="10.5" fill="#545B64">(Región us-east-2 · Ohio)</text>
+  </g>
+
+  <!-- ================= SERVICIOS DE SOPORTE (IZQUIERDA) ================= -->
+  <rect x="50" y="105" width="165" height="465" rx="6" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" />
+  <text x="62" y="125" font-size="11" font-weight="700" fill="#232F3E">Servicios de soporte</text>
+
+  <!-- ECR Card -->
+  <g transform="translate(60, 138)">
+    <rect x="0" y="0" width="145" height="70" rx="5" fill="#FFF8E1" stroke="#FFE082" stroke-width="1" filter="url(#card-shadow)"/>
+    <!-- Icono ECR -->
+    <rect x="10" y="15" width="28" height="28" rx="4" fill="#F58534" />
+    <path d="M16,23 L24,20 L32,23 L24,26 Z M16,25 L24,28 L24,37 L16,33 Z M32,25 L24,28 L24,37 L32,33 Z" fill="#FFFFFF" stroke="#F58534" stroke-width="0.8"/>
+    <text x="45" y="24" font-size="9.5" font-weight="bold" fill="#232F3E">Amazon ECR</text>
+    <text x="45" y="37" font-size="7.5" fill="#545B64">Imágenes de</text>
+    <text x="45" y="47" font-size="7.5" fill="#545B64">contenedores (Fargate)</text>
+    <text x="45" y="59" font-size="7" fill="#E65100">backend / frontend</text>
+  </g>
+
+  <!-- CloudWatch Card -->
+  <g transform="translate(60, 222)">
+    <rect x="0" y="0" width="145" height="70" rx="5" fill="#FCE4EC" stroke="#F48FB1" stroke-width="1" filter="url(#card-shadow)"/>
+    <rect x="10" y="15" width="28" height="28" rx="4" fill="#E7157B" />
+    <path d="M16,33 L20,25 L25,30 L31,21" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <text x="45" y="24" font-size="9.5" font-weight="bold" fill="#232F3E">CloudWatch</text>
+    <text x="45" y="37" font-size="7.5" fill="#545B64">Logs centralizados</text>
+    <text x="45" y="47" font-size="7.5" fill="#545B64">y métricas de tareas</text>
+    <text x="45" y="59" font-size="7" fill="#AD1457">/ecs/laboratorio-*</text>
+  </g>
+
+  <!-- IAM Card -->
+  <g transform="translate(60, 306)">
+    <rect x="0" y="0" width="145" height="65" rx="5" fill="#EDE7F6" stroke="#D1C4E9" stroke-width="1" filter="url(#card-shadow)"/>
+    <rect x="10" y="15" width="28" height="28" rx="4" fill="#7B1FA2" />
+    <circle cx="24" cy="25" r="4" fill="#FFFFFF"/>
+    <path d="M18,35 C18,31 21,30 24,30 C27,30 30,31 30,35 Z" fill="#FFFFFF"/>
+    <text x="45" y="24" font-size="9.5" font-weight="bold" fill="#232F3E">AWS IAM Roles</text>
+    <text x="45" y="37" font-size="7.5" fill="#545B64">TaskExecutionRole</text>
+    <text x="45" y="47" font-size="7" fill="#545B64">Permisos ECR / Logs</text>
+  </g>
+
+  <!-- Nota soporte -->
+  <text x="132" y="405" font-size="8" fill="#757575" text-anchor="middle">Inyección de variables</text>
+  <text x="132" y="416" font-size="8" fill="#757575" text-anchor="middle">de entorno seguras</text>
+
+  <!-- ================= VPC ================= -->
+  <rect x="230" y="105" width="920" height="465" rx="6" fill="#FFFFFF" stroke="#8C4FFF" stroke-width="1.8" />
+  
+  <g transform="translate(242, 114)">
+    <rect x="0" y="0" width="26" height="15" rx="2" fill="#8C4FFF"/>
+    <text x="13" y="11" font-size="7.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle">VPC</text>
+    <text x="34" y="12" font-size="11" font-weight="bold" fill="#8C4FFF">vpc-laboratorio-aws</text>
+    <text x="155" y="12" font-size="10" fill="#545B64">(10.0.0.0/16)</text>
+  </g>
+
+  <!-- Internet Gateway -->
+  <g transform="translate(340, 92)">
+    <rect x="0" y="0" width="95" height="28" rx="4" fill="#EDE7F6" stroke="#8C4FFF" stroke-width="1.2"/>
+    <circle cx="14" cy="14" r="8" fill="#8C4FFF"/>
+    <path d="M11,14 L17,14 M14,11 L14,17" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="28" y="13" font-size="8" font-weight="bold" fill="#4A148C">Internet Gateway</text>
+    <text x="28" y="22" font-size="7" fill="#545B64">igw-laboratorio</text>
+  </g>
+
+  <!-- ================= SUBRED 1: PÚBLICA (FRONTEND) ================= -->
+  <g transform="translate(245, 135)">
+    <rect x="0" y="0" width="275" height="420" rx="6" fill="#F4FAF2" stroke="#248814" stroke-width="1.3" />
+    <text x="12" y="18" font-size="10" font-weight="bold" fill="#248814">Subred pública A — 10.0.1.0/24</text>
+    <text x="195" y="18" font-size="8.5" fill="#545B64">(us-east-2a)</text>
+
+    <!-- SG Frontend -->
+    <rect x="12" y="26" width="251" height="20" rx="3" fill="#E8F5E9" stroke="#81C784" stroke-width="0.8"/>
+    <text x="137" y="39" font-size="8" font-weight="bold" fill="#2E7D32" text-anchor="middle">SG: frontend-sg (Inbound: HTTP 80 desde 0.0.0.0/0)</text>
+
+    <!-- NAT Gateway Card -->
+    <g transform="translate(12, 54)">
+      <rect x="0" y="0" width="251" height="52" rx="4" fill="#FFFFFF" stroke="#B39DDB" stroke-width="1"/>
+      <rect x="8" y="8" width="34" height="34" rx="4" fill="#8C4FFF"/>
+      <path d="M16,25 L25,17 L34,25 M25,18 L25,34" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <text x="50" y="20" font-size="9" font-weight="bold" fill="#311B92">NAT Gateway A (nat-laboratorio)</text>
+      <text x="50" y="32" font-size="7.5" fill="#545B64">IP Elástica: 16.58.232.26</text>
+      <text x="50" y="43" font-size="7.5" fill="#7B1FA2">Egress para pulls de ECR en subredes privadas</text>
+    </g>
+
+    <!-- Frontend Box -->
+    <g transform="translate(12, 115)">
+      <rect x="0" y="0" width="251" height="290" rx="5" fill="#FFFFFF" stroke="#FF9900" stroke-width="1.8" filter="url(#card-shadow)"/>
+      
+      <!-- Icono ECS -->
+      <rect x="105" y="10" width="40" height="40" rx="5" fill="#F58534"/>
+      <path d="M115,25 L125,20 L135,25 L125,30 Z M115,27 L125,32 L125,41 L115,36 Z M135,27 L125,32 L125,41 L135,36 Z" fill="#FFFFFF"/>
+
+      <text x="125" y="65" font-size="11.5" font-weight="bold" fill="#232F3E" text-anchor="middle">AWS Fargate (Frontend)</text>
+      <text x="125" y="78" font-size="9.5" font-weight="bold" fill="#0073BB" text-anchor="middle">Nginx Alpine (Puerto 80)</text>
+      <text x="125" y="91" font-size="9" font-weight="bold" fill="#2E7D32" text-anchor="middle">IP Pública: 18.227.81.116</text>
+
+      <!-- Badge Servidor Web -->
+      <rect x="15" y="105" width="221" height="26" rx="3" fill="#FFF3E0" stroke="#FFB74D" stroke-width="0.8"/>
+      <text x="125" y="121" font-size="8.5" font-weight="bold" fill="#E65100" text-anchor="middle">Contenedor Web (HTML5 / CSS / JS)</text>
+
+      <!-- Badge Reverse Proxy -->
+      <rect x="15" y="138" width="221" height="32" rx="3" fill="#FFF3E0" stroke="#FFB74D" stroke-width="1"/>
+      <text x="125" y="152" font-size="8.5" font-weight="bold" fill="#BF360C" text-anchor="middle">Reverse Proxy Interno (Nginx)</text>
+      <text x="125" y="163" font-size="7.5" fill="#E65100" text-anchor="middle">/api/*  →  backend.laboratorio.local:3000</text>
+
+      <!-- Cuadro Explicativo Sin ALB -->
+      <rect x="15" y="178" width="221" height="60" rx="3" fill="#F8F9FA" stroke="#CFD8DC" stroke-width="0.8"/>
+      <text x="125" y="193" font-size="8" font-weight="bold" fill="#37474F" text-anchor="middle">Resolución Directa Sin ALB</text>
+      <text x="125" y="206" font-size="7.5" fill="#545B64" text-anchor="middle">Nginx actúa de proxy inverso</text>
+      <text x="125" y="217" font-size="7.5" fill="#545B64" text-anchor="middle">reenviando llamadas API al backend</text>
+      <text x="125" y="228" font-size="7.5" fill="#545B64" text-anchor="middle">sin sobrecostos de un balanceador</text>
+
+      <text x="125" y="260" font-size="7.5" fill="#757575" text-anchor="middle">Tarea Fargate: td-frontend:1</text>
+      <text x="125" y="272" font-size="7.5" fill="#757575" text-anchor="middle">Servicio ECS: svc-frontend (Desir: 1)</text>
+    </g>
+  </g>
+
+  <!-- ================= SUBRED 2: PRIVADA APP (BACKEND) ================= -->
+  <g transform="translate(540, 135)">
+    <rect x="0" y="0" width="285" height="420" rx="6" fill="#F2F9FD" stroke="#147EBA" stroke-width="1.3" />
+    <text x="12" y="18" font-size="10" font-weight="bold" fill="#147EBA">Subred privada App — 10.0.2.0/24</text>
+    <text x="210" y="18" font-size="8.5" fill="#545B64">(us-east-2a)</text>
+
+    <!-- SG Backend -->
+    <rect x="12" y="26" width="261" height="20" rx="3" fill="#E1F5FE" stroke="#81D4FA" stroke-width="0.8"/>
+    <text x="142" y="39" font-size="8" font-weight="bold" fill="#0277BD" text-anchor="middle">SG: backend-sg (Inbound: TCP 3000 solo de frontend-sg)</text>
+
+    <!-- Backend Box -->
+    <g transform="translate(12, 54)">
+      <rect x="0" y="0" width="261" height="255" rx="5" fill="#FFFFFF" stroke="#FF9900" stroke-width="1.8" filter="url(#card-shadow)"/>
+      
+      <!-- Icono Fargate -->
+      <rect x="110" y="10" width="40" height="40" rx="5" fill="#F58534"/>
+      <path d="M120,25 L130,20 L140,25 L130,30 Z M120,27 L130,32 L130,41 L120,36 Z M140,27 L130,32 L130,41 L140,36 Z" fill="#FFFFFF"/>
+
+      <text x="130" y="65" font-size="11.5" font-weight="bold" fill="#232F3E" text-anchor="middle">AWS Fargate (Backend API)</text>
+      <text x="130" y="78" font-size="9.5" font-weight="bold" fill="#0073BB" text-anchor="middle">Node.js Express (Puerto 3000)</text>
+      <text x="130" y="91" font-size="9" font-weight="bold" fill="#C62828" text-anchor="middle">Sin IP Pública (Totalmente Aislado)</text>
+
+      <!-- Badge POST -->
+      <rect x="15" y="104" width="231" height="25" rx="3" fill="#FFF3E0" stroke="#FFB74D" stroke-width="0.8"/>
+      <text x="130" y="120" font-size="8.5" font-weight="bold" fill="#E65100" text-anchor="middle">POST /api/items (Inserta registro en BD)</text>
+
+      <!-- Badge GET -->
+      <rect x="15" y="136" width="231" height="25" rx="3" fill="#FFF3E0" stroke="#FFB74D" stroke-width="0.8"/>
+      <text x="130" y="152" font-size="8.5" font-weight="bold" fill="#E65100" text-anchor="middle">GET /api/items (Consulta registros de BD)</text>
+
+      <!-- Variables de entorno -->
+      <rect x="15" y="168" width="231" height="42" rx="3" fill="#F8F9FA" stroke="#CFD8DC" stroke-width="0.8"/>
+      <text x="130" y="182" font-size="7.5" font-weight="bold" fill="#37474F" text-anchor="middle">Inyección de Credenciales Dinámicas</text>
+      <text x="130" y="193" font-size="7" fill="#545B64" text-anchor="middle">DB_HOST, DB_USER, DB_PASSWORD, DB_NAME</text>
+      <text x="130" y="203" font-size="6.5" fill="#2E7D32" text-anchor="middle">Sin contraseñas quemadas en código</text>
+
+      <text x="130" y="226" font-size="7.5" fill="#757575" text-anchor="middle">Tarea Fargate: td-backend:1</text>
+      <text x="130" y="238" font-size="7.5" fill="#757575" text-anchor="middle">Servicio ECS: svc-backend (Desir: 1)</text>
+    </g>
+
+    <!-- ECS Service Connect Card -->
+    <g transform="translate(12, 318)">
+      <rect x="0" y="0" width="261" height="87" rx="4" fill="#EDE7F6" stroke="#B39DDB" stroke-width="1"/>
+      <text x="130" y="16" font-size="9" font-weight="bold" fill="#4527A0" text-anchor="middle">ECS Service Connect (DNS Privado)</text>
+      <text x="130" y="30" font-size="8" font-weight="bold" fill="#232F3E" text-anchor="middle">Namespace: laboratorio.local</text>
+      <text x="130" y="43" font-size="8" font-weight="bold" fill="#232F3E" text-anchor="middle">Discovery Name: backend:3000</text>
+      <text x="130" y="58" font-size="7.5" fill="#545B64" text-anchor="middle">Enrutamiento interno service-to-service</text>
+      <text x="130" y="70" font-size="7.5" fill="#545B64" text-anchor="middle">gestionado nativamente por AWS Cloud Map</text>
+    </g>
+  </g>
+
+  <!-- ================= SUBRED 3: PRIVADAS DATOS (RDS) ================= -->
+  <g transform="translate(845, 135)">
+    <rect x="0" y="0" width="290" height="420" rx="6" fill="#F2F7FD" stroke="#1565C0" stroke-width="1.3" />
+    <text x="12" y="18" font-size="10" font-weight="bold" fill="#1565C0">Subredes privadas BD (Multi-AZ)</text>
+    <text x="215" y="18" font-size="8.5" fill="#545B64">us-east-2a/b</text>
+
+    <!-- SG RDS -->
+    <rect x="12" y="26" width="266" height="20" rx="3" fill="#F3E5F5" stroke="#CE93D8" stroke-width="0.8"/>
+    <text x="145" y="39" font-size="8" font-weight="bold" fill="#6A1B9A" text-anchor="middle">SG: rds-sg (Inbound: TCP 5432 solo de backend-sg)</text>
+
+    <!-- RDS Box -->
+    <g transform="translate(12, 54)">
+      <rect x="0" y="0" width="266" height="255" rx="5" fill="#FFFFFF" stroke="#2E73B8" stroke-width="1.8" filter="url(#card-shadow)"/>
+      
+      <!-- Icono RDS -->
+      <rect x="113" y="10" width="40" height="40" rx="5" fill="#2E73B8"/>
+      <ellipse cx="133" cy="22" rx="12" ry="4" fill="#FFFFFF"/>
+      <path d="M121,22 L121,34 C121,37 145,37 145,34 L145,22" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+
+      <text x="133" y="65" font-size="11.5" font-weight="bold" fill="#232F3E" text-anchor="middle">Amazon RDS (PostgreSQL 18.3)</text>
+      <text x="133" y="78" font-size="9" fill="#545B64" text-anchor="middle">Instancia: db-laboratorio (db.t3.micro)</text>
+      <text x="133" y="91" font-size="9" font-weight="bold" fill="#2E73B8" text-anchor="middle">Base de Datos: appdb (Puerto 5432)</text>
+
+      <!-- Tabla items -->
+      <rect x="12" y="102" width="242" height="74" rx="4" fill="#E3F2FD" stroke="#90CAF9" stroke-width="0.8"/>
+      <text x="133" y="117" font-size="8.5" font-weight="bold" fill="#1565C0" text-anchor="middle">Tabla: items (Persistencia Gestionada)</text>
+      <text x="20" y="132" font-size="7.5" fill="#0D47A1">• id SERIAL PRIMARY KEY</text>
+      <text x="20" y="145" font-size="7.5" fill="#0D47A1">• nombre VARCHAR(100), descripcion TEXT, precio</text>
+      <text x="20" y="158" font-size="7.5" fill="#0D47A1">• fecha_creacion TIMESTAMP DEFAULT NOW()</text>
+      <text x="133" y="170" font-size="7" font-weight="bold" fill="#2E7D32" text-anchor="middle">Sobrevive al reinicio o muerte de contenedores</text>
+
+      <!-- Host Endpoint -->
+      <rect x="12" y="184" width="242" height="32" rx="3" fill="#F8F9FA" stroke="#CFD8DC" stroke-width="0.8"/>
+      <text x="133" y="196" font-size="7" font-weight="bold" fill="#37474F" text-anchor="middle">Endpoint Privado de Conexión</text>
+      <text x="133" y="208" font-size="6" fill="#545B64" text-anchor="middle">db-laboratorio.clka2qwsw3i8.us-east-2.rds.amazonaws.com</text>
+
+      <text x="133" y="235" font-size="7.5" fill="#757575" text-anchor="middle">Almacenamiento: 20 GB gp3</text>
+      <text x="133" y="246" font-size="7.5" fill="#2E7D32" text-anchor="middle">Estado: Available (Detenido bajo demanda)</text>
+    </g>
+
+    <!-- DB Subnet Group Card -->
+    <g transform="translate(12, 318)">
+      <rect x="0" y="0" width="266" height="87" rx="4" fill="#E0F2F1" stroke="#80CBC4" stroke-width="1"/>
+      <text x="133" y="16" font-size="9" font-weight="bold" fill="#00695C" text-anchor="middle">DB Subnet Group: dbsng-laboratorio</text>
+      <text x="133" y="30" font-size="8" fill="#004D40" text-anchor="middle">Subred BD A: 10.0.3.0/24 (us-east-2a)</text>
+      <text x="133" y="43" font-size="8" fill="#004D40" text-anchor="middle">Subred BD B: 10.0.4.0/24 (us-east-2b)</text>
+      <text x="133" y="58" font-size="7.5" fill="#545B64" text-anchor="middle">Requisito multi-AZ de RDS para</text>
+      <text x="133" y="70" font-size="7.5" fill="#545B64" text-anchor="middle">alta disponibilidad y failover automático</text>
+    </g>
+  </g>
+
+  <!-- ================= LÍNEAS DE FLUJO DE TRÁFICO ================= -->
+  <!-- 1. Usuarios a IGW -->
+  <path d="M 230,82 L 340,105" fill="none" stroke="#232F3E" stroke-width="2" marker-end="url(#arr-gray)"/>
+  
+  <!-- 2. IGW a Frontend -->
+  <path d="M 387,120 L 387,248" fill="none" stroke="#FF9900" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+
+  <!-- 3. Frontend a Backend (Reverse Proxy / Service Connect) -->
+  <path d="M 520,310 L 540,310" fill="none" stroke="#0073BB" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+
+  <!-- 4. Backend a RDS (SQL Query) -->
+  <path d="M 825,310 L 845,310" fill="none" stroke="#6A1B9A" stroke-width="2.5" marker-end="url(#arr-purple)"/>
+
+  <!-- 5. Egress privado a NAT Gateway -->
+  <path d="M 540,240 Q 525,210 497,215" fill="none" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-violet)"/>
+
+  <!-- 6. NAT Gateway a ECR / CloudWatch -->
+  <path d="M 257,215 Q 235,215 205,185" fill="none" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-violet)"/>
+
+  <!-- ================= BÚRBUJAS NUMERADAS (1 AL 8) ================= -->
+  <!-- 1. Usuario -->
+  <circle cx="280" cy="85" r="11" fill="#232F3E"/>
+  <text x="280" y="89" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1</text>
+
+  <!-- 2. Entrada IGW / Frontend -->
+  <circle cx="387" cy="180" r="11" fill="#232F3E"/>
+  <text x="387" y="184" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2</text>
+
+  <!-- 3. Nginx Reverse Proxy -->
+  <circle cx="495" cy="285" r="11" fill="#232F3E"/>
+  <text x="495" y="289" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">3</text>
+
+  <!-- 4. Service Connect -->
+  <circle cx="530" cy="310" r="11" fill="#232F3E"/>
+  <text x="530" y="314" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">4</text>
+
+  <!-- 5. Backend REST API -->
+  <circle cx="682" cy="190" r="11" fill="#232F3E"/>
+  <text x="682" y="194" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">5</text>
+
+  <!-- 6. Conexión SQL RDS -->
+  <circle cx="835" cy="310" r="11" fill="#232F3E"/>
+  <text x="835" y="314" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">6</text>
+
+  <!-- 7. Amazon RDS Persistencia -->
+  <circle cx="990" cy="190" r="11" fill="#232F3E"/>
+  <text x="990" y="194" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">7</text>
+
+  <!-- 8. ECR / CloudWatch Soporte -->
+  <circle cx="215" cy="150" r="11" fill="#232F3E"/>
+  <text x="215" y="154" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">8</text>
+
+  <!-- ================= SECCIÓN INFERIOR: FLUJO Y CONVENCIONES ================= -->
+  <!-- Flujo de tráfico Box -->
+  <rect x="35" y="595" width="765" height="215" rx="6" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.2" />
+  <text x="50" y="618" font-size="12" font-weight="bold" fill="#232F3E">Flujo de tráfico</text>
+
+  <!-- Items Columna Izquierda (1-4) -->
+  <g transform="translate(50, 630)">
+    <!-- 1 -->
+    <circle cx="10" cy="10" r="9" fill="#232F3E"/>
+    <text x="10" y="13.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="28" y="13" font-size="8.8" fill="#232F3E">El usuario envía peticiones HTTP (Puerto 80) a la IP Pública del Frontend vía Internet.</text>
+
+    <!-- 2 -->
+    <circle cx="10" cy="35" r="9" fill="#232F3E"/>
+    <text x="10" y="38.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="28" y="38" font-size="8.8" fill="#232F3E">El Internet Gateway (igw) enruta la solicitud hacia el contenedor Frontend en la subred pública.</text>
+
+    <!-- 3 -->
+    <circle cx="10" cy="60" r="9" fill="#232F3E"/>
+    <text x="10" y="63.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="28" y="63" font-size="8.8" fill="#232F3E">Nginx sirve los archivos estáticos web y actúa como Reverse Proxy interceptando llamadas /api/*.</text>
+
+    <!-- 4 -->
+    <circle cx="10" cy="85" r="9" fill="#232F3E"/>
+    <text x="10" y="88.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="28" y="88" font-size="8.8" fill="#232F3E">El tráfico API se enruta internamente hacia el backend vía ECS Service Connect (backend:3000) sin ALB.</text>
+  </g>
+
+  <!-- Items Columna Derecha (5-8) -->
+  <g transform="translate(50, 725)">
+    <!-- 5 -->
+    <circle cx="10" cy="10" r="9" fill="#232F3E"/>
+    <text x="10" y="13.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">5</text>
+    <text x="28" y="13" font-size="8.8" fill="#232F3E">El Backend (Node.js Express) procesa la lógica de negocio recibiendo solicitudes GET y POST /api/items.</text>
+
+    <!-- 6 -->
+    <circle cx="10" cy="32" r="9" fill="#232F3E"/>
+    <text x="10" y="35.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">6</text>
+    <text x="28" y="35" font-size="8.8" fill="#232F3E">El backend consulta la base de datos PostgreSQL conectándose al puerto TCP 5432 en subred privada.</text>
+
+    <!-- 7 -->
+    <circle cx="10" cy="54" r="9" fill="#232F3E"/>
+    <text x="10" y="57.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">7</text>
+    <text x="28" y="57" font-size="8.8" fill="#232F3E">Amazon RDS persiste los datos en almacenamiento EBS gestionado con DB Subnet Group multi-AZ.</text>
+
+    <!-- 8 -->
+    <circle cx="10" cy="76" r="9" fill="#232F3E"/>
+    <text x="10" y="79.5" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle">8</text>
+    <text x="28" y="79" font-size="8.8" fill="#232F3E">La subred privada sale a Internet por NAT Gateway para descargar de ECR; CloudWatch centraliza logs.</text>
+  </g>
+
+  <!-- Convenciones Box -->
+  <rect x="815" y="595" width="350" height="215" rx="6" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.2" />
+  <text x="830" y="618" font-size="12" font-weight="bold" fill="#232F3E">Convenciones</text>
+
+  <g transform="translate(830, 632)">
+    <!-- Tráfico externo -->
+    <line x1="0" y1="10" x2="30" y2="10" stroke="#FF9900" stroke-width="2.5"/>
+    <text x="40" y="13" font-size="8.5" fill="#232F3E">Tráfico de peticiones externas (HTTP 80)</text>
+
+    <!-- Tráfico interno -->
+    <line x1="0" y1="32" x2="30" y2="32" stroke="#0073BB" stroke-width="2.5"/>
+    <text x="40" y="35" font-size="8.5" fill="#232F3E">Tráfico interno (Service Connect: 3000)</text>
+
+    <!-- SQL -->
+    <line x1="0" y1="54" x2="30" y2="54" stroke="#6A1B9A" stroke-width="2.5"/>
+    <text x="40" y="57" font-size="8.5" fill="#232F3E">Consultas SQL a BD (TCP 5432)</text>
+
+    <!-- Egress -->
+    <line x1="0" y1="76" x2="30" y2="76" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="40" y="79" font-size="8.5" fill="#232F3E">Salida a Internet / Egress (NAT Gateway)</text>
+
+    <!-- SG -->
+    <rect x="5" y="94" width="20" height="13" rx="2" fill="#E8F5E9" stroke="#81C784" stroke-width="1"/>
+    <text x="40" y="104" font-size="8.5" fill="#232F3E">Grupo de seguridad (Security Group)</text>
+
+    <!-- Subred pública -->
+    <rect x="5" y="116" width="20" height="13" rx="2" fill="#F4FAF2" stroke="#248814" stroke-width="1"/>
+    <text x="40" y="126" font-size="8.5" fill="#232F3E">Subred pública (Asignación IP Pública)</text>
+
+    <!-- Subred privada -->
+    <rect x="5" y="138" width="20" height="13" rx="2" fill="#F2F9FD" stroke="#147EBA" stroke-width="1"/>
+    <text x="40" y="148" font-size="8.5" fill="#232F3E">Subred privada (Aislada de Internet)</text>
+  </g>
+
+</svg>
